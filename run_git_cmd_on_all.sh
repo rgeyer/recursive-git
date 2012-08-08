@@ -1,6 +1,6 @@
 #!/bin/sh -e
 
-SEARCHDIR="."
+SEARCHDIR=${PWD}
 GITCMD="status"
 TAKEMEHOME=${PWD}
 
@@ -20,7 +20,7 @@ done
 
 echo "Recusively running (git $GITCMD) on $SEARCHDIR"
 
-for i in `find $TAKEMEHOME/$SEARCHDIR -type d`; do
+for i in `find $SEARCHDIR -type d`; do
 	if [ -d "$i/.git" ]; then
 		echo "Why lookie there, $i is a git repository, executing your command"
 		cd $i
